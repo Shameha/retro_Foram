@@ -72,11 +72,13 @@ const loadNews = async() =>{
 const addReading = async() =>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
+   // console.log(data);
+
     const container = document.getElementById('container');
 
-    data.posts.array.forEach((items) => {
-        const div2 = document.createElement('div2');
-        div2.innerHTML=`<div class="flex gap-2">
+    data.posts.forEach((items) => {
+        const div = document.createElement('div');
+        div.innerHTML=`<div class="flex gap-2">
         <div>
           <p>${items.description}</p>
         </div>
@@ -92,9 +94,23 @@ const addReading = async() =>{
          </div>
         </div>
        </div>`;  
-       container.appendChild(div2);
+       container.appendChild(div);
          
     });
 }  
+//addReading();
+/**
+ * here the count
+ */
+const button = document.getElementsByClassName('btn');
+for(const btn of button){
 
+  let count =0;
+  const buttons = document.getElementsByClassName('btn');
+  for(const btn of buttons){
+  btn.addEventListener('click',function(){
+    count= count+1;
+    document.getElementById('count').innerText=count;
+  })}
+}
 loadNews();
