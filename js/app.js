@@ -10,7 +10,7 @@ const loadNews = async() =>{
       <div>
       <!--indicat-->
       <div class="indicator ">
-          <span class="indicator-item badge badge-secondary"></span> 
+          <span class="indicator-item badge  ${items.isActive? "bg-[#10B981]":"bg-[#FF3434]"} "></span> 
           <div class="grid w-20 h-20 rounded-2xl bg-base-300 place-items-center"><img src="${items.image}" alt=""></div>
         </div>
   </div>
@@ -54,7 +54,7 @@ const loadNews = async() =>{
        </div>
       </div>
       <div>
-        <button oncilck="addReading()" class="btn"><img src="images/email 1.png" alt=""></button>
+        <button class="btn"><img src="images/email 1.png" alt=""></button>
           
       </div>
     </div>
@@ -70,7 +70,7 @@ const loadNews = async() =>{
 
 
 const addReading = async() =>{
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts?category=categoryName');
     const data = await res.json();
    // console.log(data);
 
@@ -102,7 +102,7 @@ const addReading = async() =>{
 /**
  * here the count
  */
-const button = document.getElementsByClassName('btn');
+/*const button = document.getElementsByClassName('btn');
 for(const btn of button){
 
   let count =0;
@@ -112,5 +112,38 @@ for(const btn of button){
     count= count+1;
     document.getElementById('count').innerText=count;
   })}
+}*/
+
+const addForman = async() =>{
+  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data =await res.json();
+  const cardsContainer= document.getElementById('cards-container');
+  data.forEach((items) => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+  <div class="card w-75 bg-base-100 shadow-xl">
+  <figure><img src="${items.cover_image}" alt="Shoes" /></figure>
+  <div class="card-body">
+    <div class="flex">
+      <div><img src="images/Frame (1).png" alt=""></div>
+      <div>${items.author.posted_date}</div>
+    </div>
+    <h5 class="card-title font-extrabold text-sm">${items.title}</h5>
+    <p class="text-sm">${items.description}</p>
+    <div class="flex gap-2">
+      <div class="grid w-20 h-20">
+         <img src="${items.profile_image}" alt="">
+      </div>
+      <div>
+        <p class="text-sm">${items.author.name}</p>
+        <p class="text-sm">${items.author.designation}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  `;
+  cardsContainer.appendChild(div);
+  });
 }
 loadNews();
+addForman();
