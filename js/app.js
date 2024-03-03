@@ -54,7 +54,7 @@ const loadNews = async() =>{
        </div>
       </div>
       <div>
-        <button class="btn"><img src="images/email 1.png" alt=""></button>
+        <button onclick="addReading(id)" class="btn"><img src="images/email 1.png" alt=""></button>
           
       </div>
     </div>
@@ -69,8 +69,8 @@ const loadNews = async() =>{
 
 
 
-const addReading = async() =>{
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts?category=categoryName');
+const addReading = async(id) =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${id}`);
     const data = await res.json();
    // console.log(data);
 
@@ -97,22 +97,20 @@ const addReading = async() =>{
        container.appendChild(div);
          
     });
+    const button = document.getElementsByClassName('btn');
+let count =0;
+for(const btn of button){
+  btn.addEventListener('click',function(){
+    count= count+1;
+    document.getElementById('count').innerText=count;
+  })
+}
 }  
 //addReading();
 /**
  * here the count
  */
-/*const button = document.getElementsByClassName('btn');
-for(const btn of button){
 
-  let count =0;
-  const buttons = document.getElementsByClassName('btn');
-  for(const btn of buttons){
-  btn.addEventListener('click',function(){
-    count= count+1;
-    document.getElementById('count').innerText=count;
-  })}
-}*/
 
 const addForman = async() =>{
   const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
