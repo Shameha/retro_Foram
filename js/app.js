@@ -75,6 +75,14 @@ const addReading = async(id) =>{
    // console.log(data);
 
     const container = document.getElementById('container');
+    const button = document.getElementsByClassName('btn');
+    let count =0;
+    for(const btn of button){
+      btn.addEventListener('click',function(){
+        count= count+1;
+        document.getElementById('count').innerText=count;
+      })
+    }
 
     data.posts.forEach((items) => {
         const div = document.createElement('div');
@@ -97,14 +105,7 @@ const addReading = async(id) =>{
        container.appendChild(div);
          
     });
-    const button = document.getElementsByClassName('btn');
-let count =0;
-for(const btn of button){
-  btn.addEventListener('click',function(){
-    count= count+1;
-    document.getElementById('count').innerText=count;
-  })
-}
+
 }  
 //addReading();
 /**
@@ -143,5 +144,12 @@ const addForman = async() =>{
   cardsContainer.appendChild(div);
   });
 }
+//handle search button
+const handleSearch =() =>{
+  const searchBar=document.getElementById('search-bar');
+  const searchText = searchBar.value;
+  console.log(searchText);
+}
+
 loadNews();
 addForman();

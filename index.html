@@ -41,7 +41,7 @@
                    </div>
                   </div></li>
                 <li>
-                    <div class="tooltip" data-tip="tooltip">
+                    <div class="tooltip" data-tip="pencil">
                         <div class="rounded-full bg-[#12132D08]">
                             <i class="fa-solid fa-pencil"></i>
                         </div>
@@ -71,14 +71,14 @@
         <section id="banner"
         class=" bg-top min-h-screen sm:bg-auto text-white flex justify-center items-center">
         <!--banner sce-->
-        <div class="bg-[url(images/bgbanner.png)]  rounded-3xl bg-no-repeat bg-[#12132D]  p-20  mx-auto ">
+        <div class="bg-[url(images/bgbanner.png)]  rounded-3xl bg-no-repeat bg-[#12132D]  p-20 sm:grid-cols-1 mx-auto ">
             <!--welcome div-->
-            <div class="flex gap-20 p-10">
+            <div class="flex gap-20 p-10 sm:grid-cols-1">
             <div class="mt-5">
-             <h1 class="text-5xl font-extrabold">Welcome to the<br><span class="text-[#797DFC]" >ReTro</span>  Forum</h1> 
-             <p>Share your favorite opinion and win and wp forum coffee mug!</p>
-              <div class="bg-white rounded-xl">
-                <input type="text" placeholder="Search here anything">
+             <h1 class="text-5xl font-extrabold">Welcome to the<br><span class="text-[#797DFC]" >Turbo</span>  Forum</h1> 
+             <p class="py-4">Share your favorite opinion and win and wp forum coffee mug!</p>
+              <div class="bg-white max-w-auto rounded-xl">
+                <input id="search-bar" type="text" placeholder="Search here anything">
                 <button class="btn btn-primary rounded-full">search now</button>
               </div>
             </div>
@@ -89,15 +89,15 @@
                 <p>Registered Users</p>
                 <p>01</p>
                </div>
-               <div class="flex gap-5" >
+               <div class="flex gap-20 px-15" >
                 <p>Forum</p>
                 <p>05</p>
                </div>
-               <div class="flex gap-5" >
+               <div class="flex gap-20 px-15" >
                 <p>Topics</p>
                 <p>01</p>
                </div>
-               <div class="flex gap-5" >
+               <div class="flex gap-20 px-15" >
                 <p>Replies</p>
                 <p>01</p>
                </div>
@@ -113,7 +113,7 @@
             <h1 class=" font-extrabold text-4xl" >Let’s Discuss</h1>
             <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .
             </p>
-            <div class="flex gap-20">
+            <div class="lg:flex sm:grid-cols-1 gap-20  ">
                 <!--adding api-->
                 <div onclick="addReading()" id="fortrain-container" class="flex gap-4   flex-col pt-5 py-5">
                  
